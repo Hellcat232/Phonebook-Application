@@ -7,6 +7,7 @@ import {
   selectContacts,
 } from "../../redux/contacts/selectors.js";
 import { fetchContacts } from "../../redux/contacts/operations.js";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
@@ -15,7 +16,7 @@ const App = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const contactsArray = useSelector(selectContacts);
-  // console.log(contactsArray.length);
+  //  console.log(contactsArray.length);
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);

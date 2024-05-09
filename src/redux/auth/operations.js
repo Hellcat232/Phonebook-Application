@@ -16,7 +16,7 @@ export const register = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.post("/users/signup");
-
+      setAuthToken(response.data.token);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -35,9 +35,10 @@ export const login = createAsyncThunk("auth/login", async (_, thunkAPI) => {
 });
 
 export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+  clearAuthToken();
+
   try {
     const response = await axios.post("/users/logout");
-
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -49,7 +50,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/users/current");
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

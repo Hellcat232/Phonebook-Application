@@ -7,19 +7,20 @@ import {
   selectContacts,
 } from "../../redux/contacts/selectors.js";
 import { fetchContacts } from "../../redux/contacts/operations.js";
-
+import { refreshUser } from "../../redux/auth/operations.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { RegistrationForm } from "../RegistarationForm/RegistrationForm.jsx";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const contactsArray = useSelector(selectContacts);
-  //  console.log(contactsArray.length);
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
+  // const contactsArray = useSelector(selectContacts);
+
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
 
   return (
     <div>
@@ -27,9 +28,10 @@ const App = () => {
 
       <ContactForm />
       <SearchBox />
-      {isLoading && <p>Progress loading...</p>}
-      {error && <p>Sorry! Something went wrong...{error}</p>}
-      {contactsArray.length > 0 && <ContactList />}
+      {/* {isLoading && <p>Progress loading...</p>} */}
+      {/* {error && <p>Sorry! Something went wrong...{error}</p>} */}
+      {/* {contactsArray.length > 0 && <ContactList />} */}
+      <RegistrationForm />
     </div>
   );
 };

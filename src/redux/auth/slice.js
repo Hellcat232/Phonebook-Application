@@ -81,9 +81,27 @@ export const authSlice = createSlice({
         state.user.email = null;
         state.user.name = null;
       })
-      .addCase(refreshUser.pending, (state, action) => {})
-      .addCase(refreshUser.fulfilled, (state, action) => {})
-      .addCase(refreshUser.rejected, (state, action) => {});
+      .addCase(refreshUser.pending, (state, action) => {
+        state.isLoggedIn = false;
+        state.token = null;
+        state.isRefreshing = false;
+        state.user.email = null;
+        state.user.name = null;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.isLoggedIn = true;
+        state.isRefreshing = true;
+        state.token = action.payload.token;
+        state.user.email = action.payload.email;
+        state.user.name = action.payload.name;
+      })
+      .addCase(refreshUser.rejected, (state, action) => {
+        state.isLoggedIn = false;
+        state.isRefreshing = false;
+        state.token = null;
+        state.user.email = null;
+        state.user.name = null;
+      });
   },
 });
 

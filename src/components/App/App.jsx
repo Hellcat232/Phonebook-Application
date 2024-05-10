@@ -2,13 +2,18 @@ import { Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "../PrivateRoute/PrivateRoute";
 import { RestrictedRoute } from "../RestrictedRoute/RestrictedRoute";
 import { refreshUser } from "../../redux/auth/operations";
-import { HomePage } from "../../pages/HomePage/HomePage";
-import { ContactsPage } from "../../pages/ContactsPage/ContactsPage";
-import { LoginPage } from "../../pages/LoginPage/LoginPage";
-import { RegistrationPage } from "../../pages/RegistrationPage/RegistrationPage";
 import { Layout } from "../Layout/Layout";
-import { useEffect } from "react";
+import { useEffect, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
+const RegistrationPage = lazy(() =>
+  import("../../pages/RegistrationPage/RegistrationPage")
+);
+const ContactsPage = lazy(() =>
+  import("../../pages/ContactsPage/ContactsPage")
+);
 
 const App = () => {
   const isRefreshing = useSelector((state) => state.auth.isRefreshing);
@@ -24,7 +29,6 @@ const App = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-
         <Route
           path="/register"
           element={
@@ -40,7 +44,6 @@ const App = () => {
             <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
-
         <Route
           path="/contacts"
           element={

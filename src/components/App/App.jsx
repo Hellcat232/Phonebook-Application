@@ -5,6 +5,7 @@ import { refreshUser } from "../../redux/auth/operations";
 import { Layout } from "../Layout/Layout";
 import { useEffect, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { selectIsRefreshing } from "../../redux/auth/selectors";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
@@ -16,7 +17,7 @@ const ContactsPage = lazy(() =>
 );
 
 const App = () => {
-  const isRefreshing = useSelector((state) => state.auth.isRefreshing);
+  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {

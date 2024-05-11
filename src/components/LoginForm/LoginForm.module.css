@@ -1,4 +1,4 @@
-.contact-form {
+.login-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -8,12 +8,12 @@
   padding: 20px;
 }
 
-.contact-inputs {
+.login-inputs {
   width: 350px;
   height: 30px;
 }
 
-.add-btn {
+.submit-btn {
   padding: 0;
   width: 150px;
   height: 30px;
@@ -22,7 +22,7 @@
   background-color: rgb(120, 120, 185);
 }
 
-.contact-div {
+.form-div {
   display: flex;
   flex-direction: column;
   justify-content: center;

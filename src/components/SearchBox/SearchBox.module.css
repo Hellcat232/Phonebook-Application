@@ -5,6 +5,12 @@
   height: 30px;
 }
 
+.searching {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 .input {
   margin-top: 10px;
 }

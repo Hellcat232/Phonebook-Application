@@ -1,7 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { register } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
+import { useId } from "react";
 import * as Yup from "yup";
+import css from "./RegistrationForm.module.css";
 
 const Schema = Yup.object().shape({
   name: Yup.string()
@@ -16,11 +18,14 @@ const Schema = Yup.object().shape({
 });
 
 export const RegistrationForm = () => {
+  const nameId = useId();
+  const emailId = useId();
+  const passId = useId();
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <h1>Registration</h1>
+    <div className={css["reg-div"]}>
+      <h3>Registration</h3>
       <Formik
         initialValues={{
           name: "",
@@ -34,19 +39,24 @@ export const RegistrationForm = () => {
         }}
       >
         {({ errors, touched }) => (
-          <Form>
-            <Field name="name" />
+          <Form className={css["reg-form"]}>
+            <label htmlFor={nameId}>Name</label>
+            <Field name="name" className={css["reg-inputs"]} id={nameId} />
             {touched.name && errors.name && <div>{errors.name}</div>}
 
-            <Field name="email" />
+            <label htmlFor={emailId}>Email</label>
+            <Field name="email" className={css["reg-inputs"]} id={emailId} />
             {touched.email && errors.email && <div>{errors.email}</div>}
 
-            <Field name="password" />
+            <label htmlFor={passId}>Password</label>
+            <Field name="password" className={css["reg-inputs"]} id={passId} />
             {touched.password && errors.password && (
               <div>{errors.password}</div>
             )}
 
-            <button type="submit">Submit</button>
+            <button type="submit" className={css["submit-btn"]}>
+              Submit
+            </button>
           </Form>
         )}
       </Formik>

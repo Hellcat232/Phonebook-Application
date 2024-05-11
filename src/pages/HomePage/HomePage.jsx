@@ -1,8 +1,12 @@
+import css from "./HomePage.module.css";
+
 const HomePage = () => {
   return (
-    <>
-      <h1>My App</h1>
-    </>
+    <main className={css["home-page"]}>
+      <h1 className={css.phone}>
+        Phone<span className={css.book}>/book</span>
+      </h1>
+    </main>
   );
 };
 

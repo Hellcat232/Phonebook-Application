@@ -2,9 +2,9 @@ import { RegistrationForm } from "../../components/RegistarationForm/Registratio
 
 const RegistrationPage = () => {
   return (
-    <>
+    <main>
       <RegistrationForm />
-    </>
+    </main>
   );
 };
 

@@ -3,7 +3,7 @@ import css from "./Contact.module.css";
 import { deleteContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
 
-const Contact = ({ item }) => {
+export const Contact = ({ item }) => {
   // console.log(baseState);
   const dispatch = useDispatch();
 
@@ -34,4 +34,4 @@ const Contact = ({ item }) => {
   );
 };
 
-export default Contact;
+// export default Contact;

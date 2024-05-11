@@ -5,7 +5,7 @@ export const Layout = ({ children }) => {
   return (
     <>
       <AppBar />
-      <Suspense>{children}</Suspense>
+      <Suspense fallback={null}>{children}</Suspense>
     </>
   );
 };

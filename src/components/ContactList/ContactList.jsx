@@ -2,6 +2,17 @@ import { Contact } from "../Contact/Contact.jsx";
 import css from "./ContactList.module.css";
 import { selectFilteredContacts } from "../../redux/contacts/selectors.js";
 import { useSelector } from "react-redux";
+import Grid from "@mui/material/Unstable_Grid2";
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
 
 export const ContactList = () => {
   // const contacts = useSelector(selectContacts);
@@ -18,16 +29,14 @@ export const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
 
   return (
-    <ul className={css.contacts}>
+    <Grid xs={8} container spacing={2} className={css.contacts}>
       {filteredContacts.map((item) => {
         return (
-          <li key={item.id}>
+          <Item xs={8} key={item.id}>
             <Contact item={item} />
-          </li>
+          </Item>
         );
       })}
-    </ul>
+    </Grid>
   );
 };
-
-// export default ContactList;

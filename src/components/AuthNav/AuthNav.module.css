@@ -1,5 +1,15 @@
 .auth-nav {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 20px;
+}
+
+.to-register {
+  background-color: transparent;
+  color: inherit;
+}
+
+.to-login {
+  background-color: transparent;
+  color: inherit;
 }

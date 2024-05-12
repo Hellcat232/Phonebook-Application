@@ -1,6 +1,7 @@
 import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { useId } from "react";
+import { TextField, Button, Typography } from "@mui/material";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
@@ -27,6 +28,7 @@ export const ContactForm = () => {
 
   return (
     <div className={css["contact-div"]}>
+      <h3>Contacts</h3>
       <Formik
         initialValues={initialValue}
         validationSchema={Validation}
@@ -36,27 +38,46 @@ export const ContactForm = () => {
         }}
       >
         <Form className={css["contact-form"]}>
-          <label htmlFor={nameId}>Name</label>
+          {/* <label htmlFor={nameId}></label> */}
           <Field
+            as={TextField}
+            placeholder="Add name"
+            sx={{
+              width: "300px",
+              margin: 0.5,
+            }}
+            helperText={<ErrorMessage name="name" component="" />}
+            fullWidth
+            size="small"
+            label="Name"
+            variant="outlined"
             className={css["contact-inputs"]}
             type="text"
             name="name"
             id={nameId}
           />
-          <ErrorMessage name="name" component="span" />
 
-          <label htmlFor={numberId}>Number</label>
+          {/* <label htmlFor={numberId}></label> */}
           <Field
+            placeholder="Add number"
+            as={TextField}
+            helperText={<ErrorMessage name="number" component="" />}
+            variant="outlined"
+            sx={{
+              width: "300px",
+              margin: 0.5,
+            }}
+            size="small"
+            label="Number"
             className={css["contact-inputs"]}
             type="phone"
             name="number"
             id={numberId}
           />
-          <ErrorMessage name="number" component="span" />
 
-          <button className={css["add-btn"]} type="submit">
+          <Button className={css["add-btn"]} variant="outlined" type="submit">
             Add contact
-          </button>
+          </Button>
         </Form>
       </Formik>
     </div>

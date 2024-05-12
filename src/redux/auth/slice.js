@@ -20,27 +20,26 @@ export const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
         state.isRefreshing = false;
-        state.user.name = null;
-        state.user.email = null;
+        state.user = null;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.token = action.payload.token;
-        state.user.email = action.payload;
-        state.user.name = action.payload;
+        state.user = action.payload.user;
+        // state.user.name = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoggedIn = false;
         state.isRefreshing = false;
         state.token = null;
-        state.user.email = null;
-        state.user.name = null;
+        state.user = null;
+        // state.user.name = null;
       })
       .addCase(login.pending, (state, action) => {
         state.isLoggedIn = false;
-        state.user.email = null;
-        state.user.name = null;
+        state.user = null;
+        // state.user.name = null;
         state.isRefreshing = false;
         state.token = null;
       })
@@ -48,50 +47,48 @@ export const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.token = action.payload.token;
-        state.user.email = action.payload.email;
-        state.user.name = action.payload.name;
+        state.user = action.payload.user;
+        // state.user.name = action.payload.name;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoggedIn = false;
         state.token = null;
-        state.user.email = null;
-        state.user.name = null;
+        state.user = null;
+        // state.user.name = null;
         state.isRefreshing = false;
       })
       .addCase(logout.pending, (state, action) => {
         state.isLoggedIn = false;
         state.isRefreshing = false;
         state.token = null;
-        state.user.name = null;
-        state.user.email = null;
+        state.user = null;
+        // state.user.email = null;
       })
       .addCase(logout.fulfilled, (state, action) => {
         state.isLoggedIn = false;
         state.isRefreshing = false;
         state.token = null;
-        state.user.name = null;
-        state.user.email = null;
+        state.user = null;
+        // state.user.email = null;
       })
       .addCase(logout.rejected, (state, action) => {
         state.isLoggedIn = false;
         state.isRefreshing = false;
         state.token = null;
-        state.user.email = null;
-        state.user.name = null;
+        state.user = null;
+        // state.user.name = null;
       })
       .addCase(refreshUser.pending, (state, action) => {
         // state.isLoggedIn = false;
         // state.token = action.payload.token;
-        // state.isRefreshing = true;
-        // state.user.email = null;
-        // state.user.name = null;
+        state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.isLoggedIn = true;
         state.isRefreshing = false;
         // state.token = null;
-        state.user.email = action.payload.email;
-        state.user.name = action.payload.name;
+        state.user = action.payload;
+        // state.user.name = action.payload.name;
       })
       .addCase(refreshUser.rejected, (state, action) => {
         // state.isLoggedIn = false;

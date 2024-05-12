@@ -4,12 +4,13 @@ import { login } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import { useId } from "react";
 import * as Yup from "yup";
+import { Button, TextField, FormControl, Typography } from "@mui/material";
 
 const Schema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
-    .min(8, "Too short!")
-    .max(20, "Too long!")
+    .min(8, "Must be min 8 symbols!")
+    .max(20, "Must be max 20 symbols!")
     .required("Required"),
 });
 
@@ -32,22 +33,51 @@ export const LoginForm = () => {
           action.resetForm();
         }}
       >
-        {({ errors, touched }) => (
-          <Form className={css["login-form"]}>
-            <label htmlFor={emailId}>Email</label>
-            <Field name="email" className={css["login-inputs"]} />
-            {touched.email && errors.email && <div>{errors.email}</div>}
+        <Form className={css["login-form"]} as={FormControl} component="form">
+          <Field
+            id={emailId}
+            placeholder="Your email"
+            sx={{
+              width: "300px",
+              margin: 0.5,
+            }}
+            helperText={<ErrorMessage name="email" />}
+            fullWidth
+            size="small"
+            variant="outlined"
+            label="Email"
+            as={TextField}
+            name="email"
+            className={css["login-inputs"]}
+          />
 
-            <label htmlFor={passId}>Password</label>
-            <Field name="password" className={css["login-inputs"]} />
-            {touched.password && errors.password && (
-              <div>{errors.password}</div>
-            )}
-            <button type="submit" className={css["submit-btn"]}>
-              Submit
-            </button>
-          </Form>
-        )}
+          <Field
+            placeholder="Your password"
+            sx={{
+              m: 1,
+              width: "300px",
+              margin: 0.5,
+            }}
+            size="small"
+            helperText={<ErrorMessage name="password" />}
+            id={passId}
+            as={TextField}
+            fullWidth
+            variant="outlined"
+            label="Password"
+            name="password"
+            autoComplete="current-password"
+            className={css["login-inputs"]}
+          />
+
+          <Button
+            type="submit"
+            variant="outlined"
+            className={css["submit-btn"]}
+          >
+            Log In
+          </Button>
+        </Form>
       </Formik>
     </div>
   );

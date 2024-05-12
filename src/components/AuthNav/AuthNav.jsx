@@ -1,17 +1,26 @@
 import css from "./AuthNav.module.css";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { Typography } from "@mui/material";
+import {
+  selectIsLoggedIn,
+  selectIsRefreshing,
+} from "../../redux/auth/selectors";
 
 export const AuthNav = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   return (
     <>
       {!isLoggedIn && (
         <div className={css["auth-nav"]}>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login">Log In</NavLink>
+          <NavLink className={css["to-register"]} to="/register">
+            <Typography> Register</Typography>
+          </NavLink>
+          <NavLink className={css["to-login"]} to="/login">
+            <Typography> Log In</Typography>
+          </NavLink>
         </div>
       )}
     </>

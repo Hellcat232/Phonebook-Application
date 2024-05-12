@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
 
 export const UserMenu = () => {
-  const userName = useSelector(selectUser);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   return (
     <>
-      <p>Welcome,</p>
+      <p style={{ marginRight: 20 }}>Welcome,{user.name}</p>
       <button
         onClick={() => {
           dispatch(logout());

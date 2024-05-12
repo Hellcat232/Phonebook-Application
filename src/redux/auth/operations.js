@@ -3,13 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
-// const headers = { "Content-Type": "application/json" };
-// const text = JSON.stringify({
-//   name: "",
-//   email: "",
-//   password: "",
-// });
-
 const setAuthToken = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };

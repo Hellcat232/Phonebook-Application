@@ -21,7 +21,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    refreshUser();
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return isRefreshing ? (

@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { register } from "../../redux/auth/operations";
+import { Button, TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useId } from "react";
 import * as Yup from "yup";
@@ -38,27 +39,69 @@ export const RegistrationForm = () => {
           action.resetForm();
         }}
       >
-        {({ errors, touched }) => (
-          <Form className={css["reg-form"]}>
-            <label htmlFor={nameId}>Name</label>
-            <Field name="name" className={css["reg-inputs"]} id={nameId} />
-            {touched.name && errors.name && <div>{errors.name}</div>}
+        <Form className={css["reg-form"]}>
+          {/* <label htmlFor={nameId}>Name</label> */}
+          <Field
+            placeholder="Your name"
+            sx={{
+              width: "300px",
+              margin: 0.5,
+            }}
+            helperText={<ErrorMessage name="name" />}
+            fullWidth
+            size="small"
+            variant="outlined"
+            label="Name"
+            as={TextField}
+            name="name"
+            className={css["reg-inputs"]}
+            id={nameId}
+          />
 
-            <label htmlFor={emailId}>Email</label>
-            <Field name="email" className={css["reg-inputs"]} id={emailId} />
-            {touched.email && errors.email && <div>{errors.email}</div>}
+          {/* <label htmlFor={emailId}>Email</label> */}
+          <Field
+            placeholder="Your email"
+            sx={{
+              width: "300px",
+              margin: 0.5,
+            }}
+            helperText={<ErrorMessage name="email" />}
+            fullWidth
+            size="small"
+            variant="outlined"
+            label="Email"
+            as={TextField}
+            name="email"
+            className={css["reg-inputs"]}
+            id={emailId}
+          />
 
-            <label htmlFor={passId}>Password</label>
-            <Field name="password" className={css["reg-inputs"]} id={passId} />
-            {touched.password && errors.password && (
-              <div>{errors.password}</div>
-            )}
+          {/* <label htmlFor={passId}>Password</label> */}
+          <Field
+            placeholder="Create password"
+            sx={{
+              width: "300px",
+              margin: 0.5,
+            }}
+            helperText={<ErrorMessage name="password" />}
+            fullWidth
+            size="small"
+            variant="outlined"
+            label="Password"
+            as={TextField}
+            name="password"
+            className={css["reg-inputs"]}
+            id={passId}
+          />
 
-            <button type="submit" className={css["submit-btn"]}>
-              Submit
-            </button>
-          </Form>
-        )}
+          <Button
+            type="submit"
+            variant="outlined"
+            className={css["submit-btn"]}
+          >
+            Create acc
+          </Button>
+        </Form>
       </Formik>
     </div>
   );

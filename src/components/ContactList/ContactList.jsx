@@ -15,24 +15,24 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export const ContactList = () => {
-  // const contacts = useSelector(selectContacts);
-  // const filters = useSelector(selectNameFilter);
-  // console.log(filters);
-
-  // const filteredContacts = contacts.filter((contact) => {
-  //   return (
-  //     contact.name.toLowerCase().includes(filters.toLowerCase()) ||
-  //     contact.number.includes(filters)
-  //   );
-  // });
-
   const filteredContacts = useSelector(selectFilteredContacts);
 
   return (
-    <Grid xs={8} container spacing={2} className={css.contacts}>
+    <Grid
+      xs={6}
+      container
+      spacing={2}
+      className={css.contacts}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        // alignItems: "center",
+        gap: 3,
+      }}
+    >
       {filteredContacts.map((item) => {
         return (
-          <Item xs={8} key={item.id}>
+          <Item xs={6} key={item.id}>
             <Contact item={item} />
           </Item>
         );

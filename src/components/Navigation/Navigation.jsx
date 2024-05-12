@@ -1,4 +1,3 @@
-import HomeIcon from "@mui/icons-material/Home";
 import css from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
@@ -9,12 +8,18 @@ export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <>
-      <NavLink className={css["to-home"]} to="/">
-        <Typography>Home</Typography>
-      </NavLink>
-      {isLoggedIn && (
-        <NavLink to="/contacts" className={css["to-contact"]}>
-          <Typography> Contacts</Typography>
+      {isLoggedIn ? (
+        <>
+          <NavLink className={css["to-home"]} to="/">
+            <Typography>Home</Typography>
+          </NavLink>
+          <NavLink to="/contacts" className={css["to-contact"]}>
+            <Typography> Contacts</Typography>
+          </NavLink>
+        </>
+      ) : (
+        <NavLink className={css["to-home"]} to="/">
+          <Typography>Home</Typography>
         </NavLink>
       )}
     </>

@@ -2,21 +2,22 @@ import { BsFillTelephoneFill, BsFillPersonFill } from "react-icons/bs";
 import css from "./Contact.module.css";
 import { deleteContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
-
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EditIcon from "@mui/icons-material/Edit";
+import toast from "react-hot-toast";
 
 export const Contact = ({ item }) => {
-  // console.log(baseState);
+  console.log(item);
   const dispatch = useDispatch();
 
   return (
@@ -44,6 +45,14 @@ export const Contact = ({ item }) => {
           <Button
             onClick={() => {
               dispatch(deleteContact(item.id));
+              toast.custom(
+                <Stack>
+                  <Alert variant="filled" severity="info">
+                    The contact has been deleted.
+                  </Alert>
+                </Stack>,
+                { position: "bottom-left" }
+              );
             }}
             size="small"
           >

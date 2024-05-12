@@ -6,6 +6,7 @@ import { Layout } from "../Layout/Layout";
 import { useEffect, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing } from "../../redux/auth/selectors";
+import { Loader } from "../Loader/Loader";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
@@ -25,7 +26,7 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <p>opps</p>
+    <Loader />
   ) : (
     <Layout>
       <Routes>

@@ -19,7 +19,13 @@ const handleRejected = (state, action) => {
 export const contactsSlice = createSlice({
   name: "contacts",
 
-  initialState: { items: [], loading: false, error: null },
+  initialState: {
+    items: [],
+    loading: false,
+    error: null,
+    isAdd: false,
+    isDel: false,
+  },
 
   extraReducers: (builder) => {
     builder
@@ -35,6 +41,8 @@ export const contactsSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.items.push(action.payload);
+        state.isAdd = true;
+        state.isDel = false;
       })
       .addCase(addContact.rejected, handleRejected)
       .addCase(deleteContact.pending, handlePending)
@@ -45,6 +53,8 @@ export const contactsSlice = createSlice({
           (item) => item.id === action.payload.id
         );
         state.items.splice(index, 1);
+        state.isAdd = false;
+        state.isDel = true;
       })
       .addCase(deleteContact.rejected, handleRejected)
       .addCase(editContact.pending, handlePending)

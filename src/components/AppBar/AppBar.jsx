@@ -7,6 +7,7 @@ import { useId } from "react";
 import { selectNameFilter } from "../../redux/filters/selectors";
 import { changeFilter } from "../../redux/filters/slice";
 import { SearchBox } from "../SearchBox/SearchBox";
+import { CounterContact } from "../CounterContact/CounterContact";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import css from "./AppBar.module.css";
 
@@ -108,6 +109,7 @@ export const AppBar = () => {
                     />
                   </Search>
                 </Container>
+                <CounterContact />
                 <UserMenu />
               </>
             ) : (

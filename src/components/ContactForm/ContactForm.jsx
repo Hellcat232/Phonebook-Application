@@ -5,6 +5,10 @@ import { TextField, Button, Typography } from "@mui/material";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import { selectIsAdd } from "../../redux/contacts/selectors";
+import toast from "react-hot-toast";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 const initialValue = {
   name: "",
   number: "",
@@ -34,6 +38,7 @@ export const ContactForm = () => {
         validationSchema={Validation}
         onSubmit={(values, actions) => {
           dispatch(addContact(values));
+
           actions.resetForm();
         }}
       >
@@ -75,7 +80,21 @@ export const ContactForm = () => {
             id={numberId}
           />
 
-          <Button className={css["add-btn"]} variant="outlined" type="submit">
+          <Button
+            onClick={() =>
+              toast.custom(
+                <Stack>
+                  <Alert variant="filled" severity="success">
+                    The contact has been added.
+                  </Alert>
+                </Stack>,
+                { position: "bottom-left" }
+              )
+            }
+            className={css["add-btn"]}
+            variant="outlined"
+            type="submit"
+          >
             Add contact
           </Button>
         </Form>

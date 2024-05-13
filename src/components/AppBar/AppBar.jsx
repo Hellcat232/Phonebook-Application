@@ -75,21 +75,6 @@ export const AppBar = () => {
       <Box sx={{ flexGrow: 1 }} alignItems="center">
         <Appbar position="static">
           <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
-            {/* <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton> */}
-            {/* <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-            ></Typography> */}
             <Navigation />
 
             {isLoggedIn ? (
@@ -127,13 +112,3 @@ export const AppBar = () => {
     </header>
   );
 };
-
-// export const AppBar = () => {
-//   const isLoggedIn = useSelector(selectIsLoggedIn);
-//   return (
-//     <header className={css.header}>
-//       <Navigation />
-//       {isLoggedIn ? <UserMenu /> : <AuthNav />}
-//     </header>
-//   );
-// };

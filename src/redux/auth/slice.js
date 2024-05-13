@@ -61,7 +61,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
         state.isRefreshing = false;
         state.token = null;
-        state.user = null;
+        state.user = action.payload;
         // state.user.email = null;
       })
       .addCase(logout.fulfilled, (state, action) => {
@@ -69,14 +69,12 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
         state.token = null;
         state.user = null;
-        // state.user.email = null;
       })
       .addCase(logout.rejected, (state, action) => {
         state.isLoggedIn = false;
         state.isRefreshing = false;
         state.token = null;
         state.user = null;
-        // state.user.name = null;
       })
       .addCase(refreshUser.pending, (state, action) => {
         // state.isLoggedIn = false;

@@ -12,7 +12,6 @@ export const SearchBox = () => {
   return (
     <div className={css.searching}>
       <label htmlFor={searchBoxId}>
-        {/* Find contacts by name */}
         <input
           placeholder="Find contacts by name"
           className={css.input}

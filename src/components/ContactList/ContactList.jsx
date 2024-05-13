@@ -26,7 +26,6 @@ export const ContactList = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        // alignItems: "center",
         gap: 3,
       }}
     >

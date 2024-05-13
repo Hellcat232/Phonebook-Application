@@ -5,7 +5,6 @@ import { TextField, Button, Typography } from "@mui/material";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
-import { selectIsAdd } from "../../redux/contacts/selectors";
 import toast from "react-hot-toast";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
@@ -45,7 +44,6 @@ export const ContactForm = () => {
         }}
       >
         <Form className={css["contact-form"]}>
-          {/* <label htmlFor={nameId}></label> */}
           <Field
             as={TextField}
             placeholder="Add name"
@@ -64,7 +62,6 @@ export const ContactForm = () => {
             id={nameId}
           />
 
-          {/* <label htmlFor={numberId}></label> */}
           <Field
             placeholder="Add number"
             as={TextField}
@@ -104,5 +101,3 @@ export const ContactForm = () => {
     </div>
   );
 };
-
-// export default ContactForm;

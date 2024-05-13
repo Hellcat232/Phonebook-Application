@@ -1,9 +1,6 @@
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
-import {
-  selectFilteredContacts,
-  selectContacts,
-} from "../../redux/contacts/selectors";
+import { selectContacts } from "../../redux/contacts/selectors";
 import { useSelector } from "react-redux";
 
 export const CounterContact = () => {

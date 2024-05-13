@@ -42,7 +42,6 @@ export const RegistrationForm = () => {
         }}
       >
         <Form className={css["reg-form"]}>
-          {/* <label htmlFor={nameId}>Name</label> */}
           <Field
             placeholder="Your name"
             sx={{
@@ -60,7 +59,6 @@ export const RegistrationForm = () => {
             id={nameId}
           />
 
-          {/* <label htmlFor={emailId}>Email</label> */}
           <Field
             placeholder="Your email"
             sx={{
@@ -78,7 +76,6 @@ export const RegistrationForm = () => {
             id={emailId}
           />
 
-          {/* <label htmlFor={passId}>Password</label> */}
           <Field
             placeholder="Create password"
             sx={{

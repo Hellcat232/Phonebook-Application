@@ -1,5 +1,3 @@
-import { BsFillTelephoneFill, BsFillPersonFill } from "react-icons/bs";
-import css from "./Contact.module.css";
 import { deleteContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
 import Card from "@mui/material/Card";
@@ -27,9 +25,7 @@ export const Contact = ({ item }) => {
           sx={{ height: 140 }}
           image="https://source.unsplash.com/random"
           title="green iguana"
-        >
-          {/* <img src="https://source.unsplash.com/random" /> */}
-        </CardMedia>
+        ></CardMedia>
 
         <CardContent>
           <AccountCircleIcon />
@@ -66,5 +62,3 @@ export const Contact = ({ item }) => {
     </>
   );
 };
-
-// export default Contact;

@@ -3,22 +3,16 @@ import { AuthNav } from "../AuthNav/AuthNav";
 import { UserMenu } from "../UserMenu/UserMenu";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useId } from "react";
 import { selectNameFilter } from "../../redux/filters/selectors";
 import { changeFilter } from "../../redux/filters/slice";
-import { SearchBox } from "../SearchBox/SearchBox";
 import { CounterContact } from "../CounterContact/CounterContact";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import css from "./AppBar.module.css";
-
 import { styled, alpha } from "@mui/material/styles";
 import Appbar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { Container } from "@mui/material";
 
@@ -68,7 +62,6 @@ export const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const state = useSelector(selectNameFilter);
   const dispatch = useDispatch();
-  const searchBoxId = useId();
 
   return (
     <header className={css.header}>

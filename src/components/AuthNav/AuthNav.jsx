@@ -2,14 +2,10 @@ import css from "./AuthNav.module.css";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Typography } from "@mui/material";
-import {
-  selectIsLoggedIn,
-  selectIsRefreshing,
-} from "../../redux/auth/selectors";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 export const AuthNav = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isRefreshing = useSelector(selectIsRefreshing);
 
   return (
     <>

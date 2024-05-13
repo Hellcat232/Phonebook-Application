@@ -21,7 +21,9 @@ export const LoginForm = () => {
 
   return (
     <div className={css["form-div"]}>
-      <h3>Login</h3>
+      <h3>
+        <Typography>Login</Typography>
+      </h3>
       <Formik
         initialValues={{
           email: "",
@@ -72,7 +74,7 @@ export const LoginForm = () => {
 
           <Button
             type="submit"
-            variant="outlined"
+            variant="contained"
             className={css["submit-btn"]}
           >
             Log In

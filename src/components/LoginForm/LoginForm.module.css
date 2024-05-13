@@ -23,8 +23,12 @@
   width: 150px;
   height: 30px;
   margin-top: 20px;
-  color: aliceblue;
-  background-color: rgb(120, 120, 185);
+  color: inherit;
+  background-color: transparent;
+}
+
+.submit-btn:hover {
+  color: whitesmoke;
 }
 
 .form-div {

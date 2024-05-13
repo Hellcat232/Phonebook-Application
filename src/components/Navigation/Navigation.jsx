@@ -27,10 +27,10 @@ export const Navigation = () => {
           }}
         >
           <NavLink className={css["to-home"]} to="/">
-            <Typography color="white">Home</Typography>
+            <Typography>Home</Typography>
           </NavLink>
           <NavLink to="/contacts" className={css["to-contact"]}>
-            <Typography color="white"> Contacts</Typography>
+            <Typography> Contacts</Typography>
           </NavLink>
         </Box>
       ) : (
@@ -43,7 +43,7 @@ export const Navigation = () => {
           }}
         >
           <NavLink className={css["to-home"]} to="/">
-            <Typography sx={{ color: "white" }}>Home</Typography>
+            <Typography>Home</Typography>
           </NavLink>
         </Box>
       )}

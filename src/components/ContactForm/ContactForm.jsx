@@ -32,7 +32,9 @@ export const ContactForm = () => {
 
   return (
     <div className={css["contact-div"]}>
-      <h3>Contacts</h3>
+      <h3>
+        <Typography>Contacts</Typography>
+      </h3>
       <Formik
         initialValues={initialValue}
         validationSchema={Validation}
@@ -92,7 +94,7 @@ export const ContactForm = () => {
               )
             }
             className={css["add-btn"]}
-            variant="outlined"
+            variant="contained"
             type="submit"
           >
             Add contact

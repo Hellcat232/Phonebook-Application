@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { register } from "../../redux/auth/operations";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useId } from "react";
 import * as Yup from "yup";
@@ -26,7 +26,9 @@ export const RegistrationForm = () => {
 
   return (
     <div className={css["reg-div"]}>
-      <h3>Registration</h3>
+      <h3>
+        <Typography>Registration</Typography>
+      </h3>
       <Formik
         initialValues={{
           name: "",
@@ -96,7 +98,7 @@ export const RegistrationForm = () => {
 
           <Button
             type="submit"
-            variant="outlined"
+            variant="contained"
             className={css["submit-btn"]}
           >
             Create acc

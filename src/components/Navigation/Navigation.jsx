@@ -14,15 +14,23 @@ export const Navigation = () => {
         justifyContent: "left",
         gap: 3,
         alignItems: "flex-start",
+        marginLeft: 0,
       }}
     >
       {isLoggedIn ? (
-        <Box sx={{ display: "flex", flexDirection: "row", gap: 3 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            gap: 3,
+            marginLeft: 0,
+          }}
+        >
           <NavLink className={css["to-home"]} to="/">
-            <Typography>Home</Typography>
+            <Typography color="white">Home</Typography>
           </NavLink>
           <NavLink to="/contacts" className={css["to-contact"]}>
-            <Typography> Contacts</Typography>
+            <Typography color="white"> Contacts</Typography>
           </NavLink>
         </Box>
       ) : (
@@ -35,7 +43,7 @@ export const Navigation = () => {
           }}
         >
           <NavLink className={css["to-home"]} to="/">
-            <Typography>Home</Typography>
+            <Typography sx={{ color: "white" }}>Home</Typography>
           </NavLink>
         </Box>
       )}

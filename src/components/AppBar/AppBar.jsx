@@ -94,7 +94,13 @@ export const AppBar = () => {
 
             {isLoggedIn ? (
               <>
-                <Container sx={{ display: "flex", alignItems: "center" }}>
+                <Container
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
                   <Search className="">
                     <SearchIconWrapper>
                       <SearchIcon />
